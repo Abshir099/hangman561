@@ -31,6 +31,9 @@ class Hangman:
                print(f"Invalid letter. Please, enter a single alphabetical character.")
            elif guess in self.list_of_guesses:
                print("You already tried that letter!")
+           elif self.num_lives == 0:
+               print("You're Dead")
+               break
            else:
             self.check_guess(guess)
             self.list_of_guesses.append( guess)
