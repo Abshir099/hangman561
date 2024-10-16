@@ -9,6 +9,20 @@ class Hangman:
         self.list_of_guesses =  []
 
     def check_guess(self, guess):
+        """
+    Method that checks the guess(user input)
+    
+    
+        takes in guess as an argument, which will represent the user input
+        
+        Method checks if the guessed letter is in the random word, and if it is replaces
+        _ with the correctly guessed word
+        
+        else statement:
+        takes a life away if the guessed letter isn't in the random word 
+        and prints how many lives user has left
+    
+    """
         guess = guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
@@ -25,6 +39,14 @@ class Hangman:
     
 
     def ask_for_input(self):
+        """
+    This is Responsible for the user input, which we store in the guess variable.
+
+    The method using a while loop which will keep running and is set to true.
+    If the guessed lette rhas more than on alphanumerical character it'll be rejected
+    and user is prompted to try again. 
+    In this method i've also included a kill switch that's triggered if the num of lives = 0
+    """
         while True:
            guess = input("Guess a letter")
            if len(guess) > 1 or not guess.isalpha():
